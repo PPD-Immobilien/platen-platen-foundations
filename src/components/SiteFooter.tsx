@@ -1,13 +1,21 @@
 import { Link } from "@tanstack/react-router";
+import logo from "../assets/logo.jpg.asset.json";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-border bg-secondary">
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
         <div>
-          <p className="text-sm font-semibold text-foreground">Platen-Platen-Diehl eGbR</p>
-          <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-            Wir kaufen Wohnimmobilien – persönlich, ruhig und verlässlich.
+          <img
+            src={logo.url}
+            alt="Platen-Platen-Diehl eGbR"
+            className="h-14 w-auto"
+            width={466}
+            height={330}
+            loading="lazy"
+          />
+          <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
+            Wir investieren langfristig in Wohnimmobilien und erhalten Bestehendes.
           </p>
         </div>
         <div>
