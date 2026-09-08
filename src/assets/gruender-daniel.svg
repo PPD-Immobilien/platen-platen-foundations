@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000" viewBox="0 0 800 1000">
+  <rect width="800" height="1000" fill="#eef1f5"/>
+  <rect x="16" y="16" width="768" height="968" fill="none" stroke="#c3ccd8" stroke-width="2" stroke-dasharray="14 10"/>
+  <g fill="#1f3357" font-family="Inter, Arial, sans-serif" text-anchor="middle">
+    <text x="400" y="470" font-size="40" font-weight="600">FOTO-PLATZHALTER</text>
+    <text x="400" y="530" font-size="28">Daniel Platen</text>
+    <text x="400" y="600" font-size="24">Datei ersetzen:</text>
+    <text x="400" y="640" font-size="24" font-weight="600">src/assets/gruender-daniel.svg</text>
+    <text x="400" y="700" font-size="20">(echtes Foto, Hochformat 4:5)</text>
+  </g>
+</svg>
