@@ -11,5 +11,14 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Statischer Export: jede Seite wird beim Build als HTML-Datei erzeugt,
+    // damit die Website ohne Server (z. B. auf einem NAS-Webserver) laufen kann.
+    pages: [
+      { path: "/" },
+      { path: "/kontakt" },
+      { path: "/impressum" },
+      { path: "/datenschutz" },
+    ],
+    prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });
