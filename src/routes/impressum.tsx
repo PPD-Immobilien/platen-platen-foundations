@@ -24,25 +24,13 @@ function Impressum() {
     <div className="mx-auto max-w-3xl px-6 py-20">
       <h1 className="text-3xl font-semibold tracking-tight text-foreground">Impressum</h1>
       <div className="mt-6 rounded-sm border border-dashed border-border bg-secondary p-5 text-sm text-muted-foreground">
-        Platzhalterseite: Die folgenden Angaben sind noch zu ergänzen bzw. rechtlich zu prüfen.
+        Platzhalterseite: Die gesetzlich erforderlichen Angaben werden vor der Veröffentlichung ergänzt und rechtlich geprüft.
       </div>
 
       <div className="mt-10 space-y-8 text-sm leading-relaxed text-muted-foreground">
         <section>
-          <h2 className="text-base font-semibold text-foreground">Angaben gemäß § 5 DDG</h2>
-          <p className="mt-3">
-            Platen-Platen-Diehl eGbR
-            <br />
-            [Straße und Hausnummer]
-            <br />
-            [PLZ Ort]
-          </p>
-        </section>
-        <section>
-          <h2 className="text-base font-semibold text-foreground">Vertreten durch</h2>
-          <p className="mt-3">
-            [Vorname Nachname], [Vorname Nachname], [Vorname Nachname] – Gesellschafter
-          </p>
+          <h2 className="text-base font-semibold text-foreground">Anbieter</h2>
+          <p className="mt-3">Platen-Platen-Diehl eGbR</p>
         </section>
         <section>
           <h2 className="text-base font-semibold text-foreground">Kontakt</h2>
@@ -54,21 +42,7 @@ function Impressum() {
             >
               platen-platen-diehl-gbr@gmx.de
             </a>
-            <br />
-            Telefon: [Telefonnummer]
           </p>
-        </section>
-        <section>
-          <h2 className="text-base font-semibold text-foreground">Registereintrag</h2>
-          <p className="mt-3">
-            Gesellschaftsregister: [Registergericht]
-            <br />
-            Registernummer: [GsR-Nummer]
-          </p>
-        </section>
-        <section>
-          <h2 className="text-base font-semibold text-foreground">Umsatzsteuer-ID</h2>
-          <p className="mt-3">[USt-IdNr. gemäß § 27a UStG, falls vorhanden]</p>
         </section>
         <section>
           <h2 className="text-base font-semibold text-foreground">Streitbeilegung</h2>

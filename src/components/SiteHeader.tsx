@@ -8,6 +8,7 @@ const nav = [
   { label: "Unsere Strategie", hash: "strategie" },
   { label: "Was wir suchen", hash: "was-wir-suchen" },
   { label: "Ankaufprozess", hash: "ankaufprozess" },
+  { label: "Gründer", hash: "gruender" },
   { label: "Kontakt", hash: "kontakt" },
 ] as const;
 
@@ -27,7 +28,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-7 lg:flex">
+        <nav className="hidden items-center gap-5 lg:flex">
           {nav.map((item) => (
             <Link
               key={item.hash}
