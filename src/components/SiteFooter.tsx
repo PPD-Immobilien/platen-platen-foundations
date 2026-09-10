@@ -2,9 +2,17 @@ import { Link } from "@tanstack/react-router";
 import logo from "../assets/logo.jpg.asset.json";
 
 export function SiteFooter() {
+  const sectionLinks = [
+    { label: "Über uns", hash: "ueber-uns" },
+    { label: "Unsere Strategie", hash: "strategie" },
+    { label: "Was wir suchen", hash: "was-wir-suchen" },
+    { label: "Ankaufprozess", hash: "ankaufprozess" },
+    { label: "Kontakt", hash: "kontakt" },
+  ] as const;
+
   return (
     <footer className="border-t border-border bg-secondary">
-      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 md:grid-cols-3">
+      <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
             src={logo.url}
@@ -19,6 +27,18 @@ export function SiteFooter() {
           </p>
         </div>
         <div>
+          <p className="text-sm font-semibold text-foreground">Navigation</p>
+          <ul className="mt-3 space-y-2 text-sm text-muted-foreground">
+            {sectionLinks.map((item) => (
+              <li key={item.hash}>
+                <Link to="/" hash={item.hash} className="hover:text-foreground">
+                  {item.label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
           <p className="text-sm font-semibold text-foreground">Kontakt</p>
           <p className="mt-3 text-sm text-muted-foreground">
             <a
@@ -28,8 +48,16 @@ export function SiteFooter() {
               platen-platen-diehl-gbr@gmx.de
             </a>
           </p>
-          <p className="mt-2 text-xs text-muted-foreground">
-            Postanschrift und Telefonnummer werden ergänzt.
+          <p className="mt-3 text-sm text-muted-foreground">
+            WhatsApp Business<br />
+            <a
+              className="underline underline-offset-4 hover:text-foreground"
+              href="https://wa.me/4915258928141"
+              target="_blank"
+              rel="noreferrer"
+            >
+              +49 152 58928141
+            </a>
           </p>
         </div>
         <div>

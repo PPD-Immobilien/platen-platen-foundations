@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import heroImg from "../assets/hero-architektur.jpg";
-import wohnhausImg from "../assets/wohnhaus.jpg";
+import heroImg from "../assets/hero-wohnimmobilie.jpg";
+import wohnhausImg from "../assets/ankauf-mehrfamilienhaus.jpg";
 import lukasFoto from "../assets/lukas.png.asset.json";
 import danielPlatzhalter from "../assets/gruender-daniel.svg";
 import lennartPlatzhalter from "../assets/gruender-lennart.svg";
@@ -36,35 +36,32 @@ const gruender = [
     img: lukasFoto.url,
     platzhalter: false,
     name: "Lukas Platen",
-    role: "Ankauf und Objektauswahl",
-    text: "Erster Ansprechpartner für Eigentümerinnen und Eigentümer und verantwortlich für die Einschätzung neuer Objekte.",
-  },
-  {
-    img: danielPlatzhalter,
-    platzhalter: true,
-    datei: "src/assets/gruender-daniel.svg",
-    name: "Daniel Platen",
-    role: "Kaufmännische Steuerung und Finanzierung",
-    text: "Verantwortlich für Kalkulation, Finanzierung und die Abstimmung mit Notariat und Banken.",
+    role: "Ankauf · Finanzierung · Strategie",
   },
   {
     img: lennartPlatzhalter,
     platzhalter: true,
-    datei: "src/assets/gruender-lennart.svg",
-    name: "Lennart Diehl",
-    role: "Bestand und Objektentwicklung",
-    text: "Begleitet die Objekte nach dem Ankauf: Instandhaltung, Vermietung und die behutsame Weiterentwicklung.",
+    datei: "gruender-lennart.svg",
+    name: "Lennart Platen",
+    role: "Technische Themen · Sanierung · Projekte",
+  },
+  {
+    img: danielPlatzhalter,
+    platzhalter: true,
+    datei: "gruender-daniel.svg",
+    name: "Daniel Diehl",
+    role: "Verwaltung · Vermietung · Kommunikation",
   },
 ];
 
 const strategie = [
   {
     t: "Langfristige Bestandshaltung",
-    d: "Wir kaufen Immobilien für den eigenen Bestand und halten sie dauerhaft. Ein Weiterverkauf ist nicht unser Geschäftsmodell.",
+    d: "Wir verfolgen eine Buy-&-Hold-Strategie und möchten einen stabilen Immobilienbestand langfristig aufbauen und erhalten.",
   },
   {
     t: "Bestehendes erhalten",
-    d: "Gewachsene Gebäude und gewachsene Nachbarschaften haben einen Wert. Wir pflegen die Substanz, statt sie auszutauschen.",
+    d: "Gewachsene Gebäude und gewachsene Nachbarschaften haben einen Wert. Wir pflegen die Substanz, statt sie unnötig auszutauschen.",
   },
   {
     t: "Nachhaltig entwickeln",
@@ -72,7 +69,7 @@ const strategie = [
   },
   {
     t: "Persönlicher Umgang",
-    d: "Mit Eigentümerinnen, Eigentümern und Mietparteien sprechen immer dieselben Personen. Verlässlich, ruhig und auf Augenhöhe.",
+    d: "Mit Eigentümerinnen, Eigentümern und Mietparteien sprechen wir immer dieselben Personen. Verlässlich, ruhig und auf Augenhöhe.",
   },
 ];
 
@@ -96,22 +93,27 @@ const ablauf = [
   {
     n: "01",
     t: "Erstes Gespräch",
-    d: "Sie schildern uns Ihre Immobilie und Ihre Vorstellungen – telefonisch oder per E-Mail. Unverbindlich.",
+    d: "Kurzer Austausch zu Ihrer Immobilie und den wichtigsten Eckdaten – telefonisch oder per E-Mail.",
   },
   {
     n: "02",
-    t: "Objekt ansehen",
-    d: "Wir sehen uns die Immobilie an und sichten gemeinsam die vorhandenen Unterlagen.",
+    t: "Erste Einschätzung",
+    d: "Wir prüfen die wichtigsten Informationen und geben möglichst schnell eine erste Einschätzung.",
   },
   {
     n: "03",
-    t: "Angebot",
-    d: "Sie erhalten ein nachvollziehbar hergeleitetes Kaufangebot ohne zeitlichen Druck.",
+    t: "Besichtigung & Detailprüfung",
+    d: "Bei grundsätzlichem Interesse sehen wir uns die Immobilie an und prüfen die relevanten Unterlagen detailliert.",
   },
   {
     n: "04",
-    t: "Notartermin",
-    d: "Wir übernehmen die Abstimmung mit dem Notariat und begleiten Sie bis zur Übergabe.",
+    t: "Individuelles Angebot",
+    d: "Auf Basis der Prüfung kalkulieren wir den möglichen Ankauf und stimmen die nächsten Schritte gemeinsam ab.",
+  },
+  {
+    n: "05",
+    t: "Kaufabwicklung",
+    d: "Finanzierung, Notar und Übergabe werden gemeinsam abgestimmt.",
   },
 ];
 
@@ -129,11 +131,11 @@ function Index() {
               Langfristig investieren. Werte erhalten.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Wir sind eine private Investorengemeinschaft und erwerben Wohnimmobilien im
-              Rhein-Main-Gebiet für den eigenen langfristigen Bestand.
+              Wir sind drei Freunde aus der Rhein-Main-Region und investieren gemeinsam in
+              Wohnimmobilien für unseren langfristigen Bestand.
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Was wir kaufen, halten wir: Wir pflegen die Substanz, entwickeln sie behutsam weiter
+              Was wir kaufen, halten wir. Wir pflegen die Substanz, entwickeln sie behutsam weiter
               und bleiben für alle Beteiligten persönlich ansprechbar.
             </p>
             <div className="mt-9 flex flex-wrap gap-4">
@@ -155,8 +157,8 @@ function Index() {
           <img
             src={heroImg}
             alt="Fassade eines Mehrfamilienhauses in ruhiger Wohnlage"
-            width={1600}
-            height={1008}
+            width={1536}
+            height={1024}
             className="h-full w-full rounded-sm object-cover"
           />
         </div>
@@ -253,14 +255,15 @@ function Index() {
                 ))}
               </ul>
               <p className="mt-6 text-sm leading-relaxed text-muted-foreground">
-                Auch Objekte mit bis zu 12 Wohneinheiten können passen.
+                Grundsätzlich können auch Objekte mit bis zu 12 Wohneinheiten interessant sein.
               </p>
             </div>
           </div>
 
           <p className="mt-8 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Der Kaufpreis richtet sich nach Lage, Zustand und Ertrag des jeweiligen Objekts und wird
-            individuell ermittelt.
+            Eine feste Preisobergrenze gibt es nicht. Wir betrachten jede Immobilie individuell und
+            kalkulieren den möglichen Ankauf auf Basis von Lage, Zustand, Ertrag und
+            Entwicklungspotenzial.
           </p>
         </div>
       </section>
@@ -274,7 +277,7 @@ function Index() {
                 Ankaufprozess
               </p>
               <h2 className="mt-4 text-3xl font-semibold tracking-tight text-foreground">
-                Vier Schritte, in Ruhe abgestimmt
+                 Von der ersten Anfrage bis zum Kauf
               </h2>
               <ol className="mt-10 space-y-8">
                 {ablauf.map((s) => (
@@ -293,12 +296,20 @@ function Index() {
             <img
               src={wohnhausImg}
               alt="Ruhige Wohnstraße mit Wohnhäusern"
-              width={1200}
-              height={912}
+               width={1200}
+               height={1440}
               loading="lazy"
-              className="h-full w-full rounded-sm object-cover"
+               className="h-full max-h-[900px] w-full rounded-sm object-cover"
             />
           </div>
+           <div className="mt-10 border-l-2 border-primary bg-background p-7">
+             <h3 className="text-lg font-semibold text-foreground">Langfristig im Bestand</h3>
+             <p className="mt-3 max-w-3xl text-sm leading-relaxed text-muted-foreground">
+               Unser Ziel ist es, die Immobilie langfristig im Bestand zu halten, bestehende
+               Mietverhältnisse nach Möglichkeit fortzuführen und die Immobilie nachhaltig
+               weiterzuentwickeln.
+             </p>
+           </div>
         </div>
       </section>
 
@@ -310,7 +321,7 @@ function Index() {
             Die Menschen hinter der GbR
           </h2>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground">
-            Hinter der Platen-Platen-Diehl eGbR stehen drei Personen, die gemeinsam entscheiden und
+            Hinter der Platen-Platen-Diehl eGbR stehen drei Freunde, die gemeinsam entscheiden und
             gemeinsam Verantwortung tragen – vom ersten Gespräch bis weit über den Ankauf hinaus.
           </p>
           <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
@@ -330,12 +341,11 @@ function Index() {
                 />
                 {g.platzhalter && (
                   <p className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground">
-                    Platzhalter · Datei ersetzen: {g.datei}
+                     Foto folgt · Zuordnung: {g.datei}
                   </p>
                 )}
                 <h3 className="mt-3 text-base font-semibold text-foreground">{g.name}</h3>
                 <p className="text-sm text-primary">{g.role}</p>
-                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{g.text}</p>
               </article>
             ))}
           </div>
@@ -347,11 +357,11 @@ function Index() {
         <div className="mx-auto max-w-6xl px-6 py-20">
           <div className="rounded-sm border border-border bg-primary px-8 py-14 text-primary-foreground md:px-14">
             <h2 className="max-w-2xl text-3xl font-semibold tracking-tight">
-              Erzählen Sie uns von Ihrer Immobilie
+              Sie möchten eine Immobilie anbieten?
             </h2>
             <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/80">
-              Ein kurzer Hinweis genügt. Wir melden uns persönlich und sagen Ihnen offen, ob und wie
-              wir weitermachen können.
+              Sie sind Eigentümer oder Makler und möchten eine Wohnimmobilie im Rhein-Main-Gebiet
+              anbieten? Wir freuen uns über Ihre Nachricht und prüfen Ihr Angebot gerne persönlich.
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-6">
               <Link
@@ -367,6 +377,12 @@ function Index() {
                 platen-platen-diehl-gbr@gmx.de
               </a>
             </div>
+            <p className="mt-4 text-sm text-primary-foreground/90">
+              WhatsApp:{" "}
+              <a href="https://wa.me/4915258928141" target="_blank" rel="noreferrer" className="underline underline-offset-4">
+                +49 152 58928141
+              </a>
+            </p>
           </div>
         </div>
       </section>

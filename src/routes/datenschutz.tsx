@@ -34,7 +34,7 @@ function Datenschutz() {
         <section>
           <h2 className="text-base font-semibold text-foreground">Verantwortlicher</h2>
           <p className="mt-3">
-            Platen-Platen-Diehl eGbR, [Straße], [PLZ Ort], E-Mail:{" "}
+            Platen-Platen-Diehl eGbR, E-Mail:{" "}
             <a
               className="underline underline-offset-4"
               href="mailto:platen-platen-diehl-gbr@gmx.de"

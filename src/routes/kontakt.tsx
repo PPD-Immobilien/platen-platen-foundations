@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Mail, MessageCircle } from "lucide-react";
 import { createFileRoute } from "@tanstack/react-router";
 
 export const Route = createFileRoute("/kontakt")({
@@ -28,26 +29,43 @@ const EMAIL = "platen-platen-diehl-gbr@gmx.de";
 type Fields = {
   name: string;
   email: string;
-  phone: string;
-  object: string;
+  personType: string;
+  propertyType: string;
+  location: string;
+  area: string;
+  units: string;
   message: string;
 };
 
-const empty: Fields = { name: "", email: "", phone: "", object: "", message: "" };
+const empty: Fields = {
+  name: "",
+  email: "",
+  personType: "",
+  propertyType: "",
+  location: "",
+  area: "",
+  units: "",
+  message: "",
+};
 
 function KontaktPage() {
   const [values, setValues] = useState<Fields>(empty);
   const [errors, setErrors] = useState<Partial<Record<keyof Fields, string>>>({});
   const [sent, setSent] = useState(false);
 
-  const set = (key: keyof Fields) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
-    setValues((v) => ({ ...v, [key]: e.target.value }));
+  const set = (key: keyof Fields) =>
+    (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
+      setValues((v) => ({ ...v, [key]: e.target.value }));
 
   const validate = () => {
     const next: Partial<Record<keyof Fields, string>> = {};
     if (values.name.trim().length < 2) next.name = "Bitte geben Sie Ihren Namen an.";
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(values.email.trim()))
       next.email = "Bitte geben Sie eine gültige E-Mail-Adresse an.";
+    if (!values.personType) next.personType = "Bitte wählen Sie eine Angabe aus.";
+    if (!values.propertyType) next.propertyType = "Bitte wählen Sie einen Immobilientyp aus.";
+    if (values.location.trim().length < 2) next.location = "Bitte geben Sie den Standort an.";
+    if (values.area.trim().length < 1) next.area = "Bitte geben Sie die Wohnfläche an.";
     if (values.message.trim().length < 10)
       next.message = "Bitte beschreiben Sie Ihr Anliegen mit mindestens 10 Zeichen.";
     setErrors(next);
@@ -62,8 +80,11 @@ function KontaktPage() {
     const body = [
       `Name: ${values.name.trim()}`,
       `E-Mail: ${values.email.trim()}`,
-      `Telefon: ${values.phone.trim() || "—"}`,
-      `Objekt / Adresse: ${values.object.trim() || "—"}`,
+      `Ich bin: ${values.personType}`,
+      `Immobilientyp: ${values.propertyType}`,
+      `Standort: ${values.location.trim()}`,
+      `Wohnfläche: ${values.area.trim()}`,
+      `Anzahl Wohneinheiten: ${values.units.trim() || "—"}`,
       "",
       "Nachricht:",
       values.message.trim(),
@@ -83,17 +104,20 @@ function KontaktPage() {
       <div className="max-w-2xl">
         <p className="text-xs uppercase tracking-[0.2em] text-muted-foreground">Kontakt</p>
         <h1 className="mt-4 text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-          Sprechen Sie uns an
+          Sie haben eine Immobilie anzubieten?
         </h1>
         <p className="mt-5 text-base leading-relaxed text-muted-foreground">
-          Schreiben Sie uns kurz, worum es geht. Wir melden uns persönlich zurück – unverbindlich
-          und ohne Verkaufsdruck. Das Formular öffnet Ihr E-Mail-Programm mit einer vorbereiteten
-          Nachricht an{" "}
-          <a className="underline underline-offset-4" href={`mailto:${EMAIL}`}>
-            {EMAIL}
-          </a>
-          .
+          Sie sind Eigentümer oder Makler und möchten eine Wohnimmobilie im Rhein-Main-Gebiet
+          anbieten? Wir freuen uns über Ihre Nachricht und prüfen Ihr Angebot gerne persönlich.
         </p>
+        <div className="mt-8 flex flex-wrap gap-4">
+          <a href={`mailto:${EMAIL}`} className="inline-flex items-center gap-2 rounded-sm bg-primary px-5 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90">
+            <Mail className="h-4 w-4" aria-hidden="true" /> E-Mail schreiben
+          </a>
+          <a href="https://wa.me/4915258928141" target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 rounded-sm border border-input px-5 py-3 text-sm font-medium text-foreground transition-colors hover:bg-secondary">
+            <MessageCircle className="h-4 w-4" aria-hidden="true" /> Über WhatsApp kontaktieren
+          </a>
+        </div>
       </div>
 
       <form onSubmit={onSubmit} noValidate className="mt-12 grid max-w-2xl gap-6">
@@ -122,17 +146,44 @@ function KontaktPage() {
 
         <div className="grid gap-6 sm:grid-cols-2">
           <div>
-            <label htmlFor="phone" className="text-sm font-medium text-foreground">
-              Telefon (optional)
+            <label htmlFor="personType" className="text-sm font-medium text-foreground">
+              Ich bin: *
             </label>
-            <input id="phone" className={field} value={values.phone} onChange={set("phone")} />
+            <select id="personType" className={field} value={values.personType} onChange={set("personType")}>
+              <option value="">Bitte auswählen</option>
+              <option>Privater Eigentümer</option><option>Privater Vermieter</option>
+              <option>Eigentümer eines Mehrfamilienhauses</option><option>Immobilienmakler</option><option>Sonstiges</option>
+            </select>
+            {errors.personType && <p className="mt-2 text-sm text-destructive">{errors.personType}</p>}
           </div>
           <div>
-            <label htmlFor="object" className="text-sm font-medium text-foreground">
-              Objekt / Ort (optional)
+            <label htmlFor="propertyType" className="text-sm font-medium text-foreground">
+              Immobilientyp: *
             </label>
-            <input id="object" className={field} value={values.object} onChange={set("object")} />
+            <select id="propertyType" className={field} value={values.propertyType} onChange={set("propertyType")}>
+              <option value="">Bitte auswählen</option>
+              <option>Eigentumswohnung</option><option>Mehrfamilienhaus</option><option>Sonstiges</option>
+            </select>
+            {errors.propertyType && <p className="mt-2 text-sm text-destructive">{errors.propertyType}</p>}
           </div>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2">
+          <div>
+            <label htmlFor="location" className="text-sm font-medium text-foreground">Standort *</label>
+            <input id="location" className={field} value={values.location} onChange={set("location")} />
+            {errors.location && <p className="mt-2 text-sm text-destructive">{errors.location}</p>}
+          </div>
+          <div>
+            <label htmlFor="area" className="text-sm font-medium text-foreground">Wohnfläche *</label>
+            <input id="area" className={field} value={values.area} onChange={set("area")} placeholder="z. B. 85 m²" />
+            {errors.area && <p className="mt-2 text-sm text-destructive">{errors.area}</p>}
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="units" className="text-sm font-medium text-foreground">Anzahl Wohneinheiten (optional)</label>
+          <input id="units" className={field} value={values.units} onChange={set("units")} />
         </div>
 
         <div>
@@ -148,6 +199,9 @@ function KontaktPage() {
           />
           {errors.message && <p className="mt-2 text-sm text-destructive">{errors.message}</p>}
         </div>
+        <p className="border-l-2 border-primary pl-4 text-sm font-medium leading-relaxed text-foreground">
+          Sie können uns Ihr Exposé und weitere Unterlagen gerne direkt per E-Mail zukommen lassen.
+        </p>
 
         <div className="flex flex-wrap items-center gap-4">
           <button
