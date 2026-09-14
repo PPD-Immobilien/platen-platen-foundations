@@ -337,21 +337,12 @@ function Index() {
               <article key={g.name} className="rounded-sm border border-border bg-background p-5">
                 <img
                   src={g.img}
-                  alt={
-                    g.platzhalter
-                      ? `Foto-Platzhalter für ${g.name} – bitte durch echtes Foto ersetzen`
-                      : `Porträtfoto von ${g.name}`
-                  }
+                  alt={`Porträtfoto von ${g.name}`}
                   width={800}
                   height={1000}
                   loading="lazy"
                   className="aspect-[4/5] w-full rounded-sm bg-secondary object-cover"
                 />
-                {g.platzhalter && (
-                  <p className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground">
-                     Foto folgt · Zuordnung: {g.datei}
-                  </p>
-                )}
                 <h3 className="mt-3 text-base font-semibold text-foreground">{g.name}</h3>
                 <p className="text-sm text-primary">{g.role}</p>
               </article>
