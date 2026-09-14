@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "../assets/hero-wohnimmobilie.jpg";
 import wohnhausImg from "../assets/ankauf-mehrfamilienhaus.jpg";
 import lukasFoto from "../assets/lukas.png";
-import danielPlatzhalter from "../assets/gruender-daniel.svg";
-import lennartPlatzhalter from "../assets/gruender-lennart.svg";
+import lennartFoto from "../assets/lennart.png";
+import danielFoto from "../assets/daniel.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,16 +40,14 @@ const gruender = [
     role: "Ankauf · Finanzierung · Strategie",
   },
   {
-    img: lennartPlatzhalter,
-    platzhalter: true,
-    datei: "gruender-lennart.svg",
+    img: lennartFoto,
+    platzhalter: false,
     name: "Lennart Platen",
     role: "Technische Themen · Sanierung · Projekte",
   },
   {
-    img: danielPlatzhalter,
-    platzhalter: true,
-    datei: "gruender-daniel.svg",
+    img: danielFoto,
+    platzhalter: false,
     name: "Daniel Diehl",
     role: "Verwaltung · Vermietung · Kommunikation",
   },
@@ -339,21 +337,12 @@ function Index() {
               <article key={g.name} className="rounded-sm border border-border bg-background p-5">
                 <img
                   src={g.img}
-                  alt={
-                    g.platzhalter
-                      ? `Foto-Platzhalter für ${g.name} – bitte durch echtes Foto ersetzen`
-                      : `Porträtfoto von ${g.name}`
-                  }
+                  alt={`Porträtfoto von ${g.name}`}
                   width={800}
                   height={1000}
                   loading="lazy"
                   className="aspect-[4/5] w-full rounded-sm bg-secondary object-cover"
                 />
-                {g.platzhalter && (
-                  <p className="mt-4 text-[11px] uppercase tracking-wider text-muted-foreground">
-                     Foto folgt · Zuordnung: {g.datei}
-                  </p>
-                )}
                 <h3 className="mt-3 text-base font-semibold text-foreground">{g.name}</h3>
                 <p className="text-sm text-primary">{g.role}</p>
               </article>
@@ -373,7 +362,7 @@ function Index() {
               Sie sind Eigentümer oder Makler und möchten eine Wohnimmobilie im Rhein-Main-Gebiet
               anbieten? Wir freuen uns über Ihre Nachricht und prüfen Ihr Angebot gerne persönlich.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-6">
+            <div className="mt-9 flex flex-col items-start gap-4">
               <Link
                 to="/kontakt"
                 className="rounded-sm bg-background px-6 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
