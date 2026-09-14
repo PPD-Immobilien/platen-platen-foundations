@@ -12,6 +12,7 @@ export const Route = createFileRoute("/datenschutz")({
       { property: "og:description", content: "Datenschutzhinweise der Platen-Platen-Diehl eGbR." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/datenschutz" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/datenschutz" }],

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
-import logo from "../assets/logo.jpg.asset.json";
+import logo from "../assets/logo.jpg";
 
 const nav = [
   { label: "Über uns", hash: "ueber-uns" },
@@ -20,7 +20,7 @@ export function SiteHeader() {
       <div className="mx-auto flex h-20 max-w-6xl items-center justify-between px-6">
         <Link to="/" className="flex items-center" onClick={() => setOpen(false)}>
           <img
-            src={logo.url}
+            src={logo}
             alt="Platen-Platen-Diehl eGbR"
             className="h-12 w-auto md:h-14"
             width={466}
