@@ -2,8 +2,8 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "../assets/hero-wohnimmobilie.jpg";
 import wohnhausImg from "../assets/ankauf-mehrfamilienhaus.jpg";
 import lukasFoto from "../assets/lukas.png";
-import danielPlatzhalter from "../assets/gruender-daniel.svg";
-import lennartPlatzhalter from "../assets/gruender-lennart.svg";
+import lennartFoto from "../assets/lennart.png";
+import danielFoto from "../assets/daniel.png";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -40,16 +40,14 @@ const gruender = [
     role: "Ankauf · Finanzierung · Strategie",
   },
   {
-    img: lennartPlatzhalter,
-    platzhalter: true,
-    datei: "gruender-lennart.svg",
+    img: lennartFoto,
+    platzhalter: false,
     name: "Lennart Platen",
     role: "Technische Themen · Sanierung · Projekte",
   },
   {
-    img: danielPlatzhalter,
-    platzhalter: true,
-    datei: "gruender-daniel.svg",
+    img: danielFoto,
+    platzhalter: false,
     name: "Daniel Diehl",
     role: "Verwaltung · Vermietung · Kommunikation",
   },
@@ -373,7 +371,7 @@ function Index() {
               Sie sind Eigentümer oder Makler und möchten eine Wohnimmobilie im Rhein-Main-Gebiet
               anbieten? Wir freuen uns über Ihre Nachricht und prüfen Ihr Angebot gerne persönlich.
             </p>
-            <div className="mt-9 flex flex-wrap items-center gap-6">
+            <div className="mt-9 flex flex-col items-start gap-4">
               <Link
                 to="/kontakt"
                 className="rounded-sm bg-background px-6 py-3 text-sm font-medium text-foreground transition-opacity hover:opacity-90"
