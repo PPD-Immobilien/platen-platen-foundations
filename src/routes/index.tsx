@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import heroImg from "../assets/hero-wohnimmobilie.jpg";
 import wohnhausImg from "../assets/ankauf-mehrfamilienhaus.jpg";
-import lukasFoto from "../assets/lukas.png.asset.json";
+import lukasFoto from "../assets/lukas.png";
 import danielPlatzhalter from "../assets/gruender-daniel.svg";
 import lennartPlatzhalter from "../assets/gruender-lennart.svg";
 
@@ -33,7 +33,7 @@ export const Route = createFileRoute("/")({
 
 const gruender = [
   {
-    img: lukasFoto.url,
+    img: lukasFoto,
     platzhalter: false,
     name: "Lukas Platen",
     role: "Ankauf · Finanzierung · Strategie",
@@ -56,18 +56,22 @@ const gruender = [
 
 const strategie = [
   {
+    n: "01",
     t: "Langfristige Bestandshaltung",
     d: "Wir verfolgen eine Buy-&-Hold-Strategie und möchten einen stabilen Immobilienbestand langfristig aufbauen und erhalten.",
   },
   {
+    n: "02",
     t: "Bestehendes erhalten",
     d: "Gewachsene Gebäude und gewachsene Nachbarschaften haben einen Wert. Wir pflegen die Substanz, statt sie unnötig auszutauschen.",
   },
   {
+    n: "03",
     t: "Nachhaltig entwickeln",
     d: "Wir verbessern unsere Objekte Schritt für Schritt – energetisch und baulich, in einem Tempo, das zum Haus und zu den Mietverhältnissen passt.",
   },
   {
+    n: "04",
     t: "Persönlicher Umgang",
     d: "Mit Eigentümerinnen, Eigentümern und Mietparteien sprechen wir immer dieselben Personen. Verlässlich, ruhig und auf Augenhöhe.",
   },
@@ -204,7 +208,8 @@ function Index() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2">
             {strategie.map((s) => (
               <div key={s.t} className="rounded-sm border border-border bg-background p-7">
-                <h3 className="text-base font-semibold text-foreground">{s.t}</h3>
+                <p className="text-xs font-semibold tabular-nums text-primary">{s.n}</p>
+                <h3 className="mt-3 text-base font-semibold text-foreground">{s.t}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-muted-foreground">{s.d}</p>
               </div>
             ))}

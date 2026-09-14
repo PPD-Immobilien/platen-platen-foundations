@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import logo from "../assets/logo.jpg.asset.json";
+import logo from "../assets/logo.jpg";
 
 export function SiteFooter() {
   const sectionLinks = [
@@ -15,7 +15,7 @@ export function SiteFooter() {
       <div className="mx-auto grid max-w-6xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div>
           <img
-            src={logo.url}
+            src={logo}
             alt="Platen-Platen-Diehl eGbR"
             className="h-14 w-auto"
             width={466}
@@ -25,6 +25,7 @@ export function SiteFooter() {
           <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
             Wir investieren langfristig in Wohnimmobilien und erhalten Bestehendes.
           </p>
+          <p className="mt-3 text-sm font-medium text-foreground">Platen-Platen-Diehl eGbR</p>
         </div>
         <div>
           <p className="text-sm font-semibold text-foreground">Navigation</p>

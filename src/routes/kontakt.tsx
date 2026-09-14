@@ -131,7 +131,7 @@ function KontaktPage() {
           </div>
           <div>
             <label htmlFor="email" className="text-sm font-medium text-foreground">
-              E-Mail *
+              E-Mail-Adresse *
             </label>
             <input
               id="email"
