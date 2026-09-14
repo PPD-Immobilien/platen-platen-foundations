@@ -25,6 +25,7 @@ export const Route = createFileRoute("/")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/" }],
   }),
@@ -191,6 +192,11 @@ function Index() {
             <p>
               Entscheidungen treffen wir gemeinsam und persönlich. Wer mit uns spricht, spricht
               direkt mit den Menschen, die auch nach dem Ankauf verantwortlich bleiben.
+            </p>
+            <p>
+              Gegründet 2024 von drei Freunden, die in der Rhein-Main-Region aufgewachsen sind,
+              bauen wir mit einer Buy-&-Hold-Strategie einen nachhaltigen und stabilen
+              Immobilienbestand als Altersvorsorge auf.
             </p>
           </div>
         </div>

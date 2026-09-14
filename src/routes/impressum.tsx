@@ -12,6 +12,7 @@ export const Route = createFileRoute("/impressum")({
       { property: "og:description", content: "Anbieterkennzeichnung der Platen-Platen-Diehl eGbR." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/impressum" },
+      { name: "twitter:card", content: "summary_large_image" },
       { name: "robots", content: "noindex" },
     ],
     links: [{ rel: "canonical", href: "/impressum" }],

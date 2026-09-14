@@ -18,6 +18,7 @@ export const Route = createFileRoute("/kontakt")({
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "/kontakt" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [{ rel: "canonical", href: "/kontakt" }],
   }),
