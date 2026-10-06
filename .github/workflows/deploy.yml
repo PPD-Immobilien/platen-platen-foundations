@@ -36,6 +36,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
+      - name: Show build output
+        run: |
+          echo "=== dist ==="
+          find dist -maxdepth 3 -type f | sort
+
       - name: Build
         run: npm run build
 
