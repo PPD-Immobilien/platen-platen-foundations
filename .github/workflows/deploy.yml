@@ -38,17 +38,6 @@ jobs:
 
       - name: Build
         run: npm run build
-        
-      - name: Show build output
-        run: |
-          echo "=== ROOT ==="
-          find . -maxdepth 3 -type f \( -name "index.html" -o -name "404.html" \) | sort
-          echo "=== OUTPUT DIRECTORIES ==="
-          ls -la
-          echo "=== .output ==="
-          find .output -maxdepth 4 -type f 2>/dev/null | sort || true
-          echo "=== dist ==="
-          find dist -maxdepth 4 -type f 2>/dev/null | sort || true
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -56,7 +45,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: ./dist
+          path: ./.output/public
 
       - name: Deploy to GitHub Pages
         id: deployment
