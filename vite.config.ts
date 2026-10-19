@@ -7,12 +7,15 @@
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
 export default defineConfig({
+  base: "/platen-platen-foundations/",
+  
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
     // Statischer Export: jede Seite wird beim Build als HTML-Datei erzeugt,
     // damit die Website ohne Server (z. B. auf einem NAS-Webserver) laufen kann.
+   
     pages: [
       { path: "/" },
       { path: "/kontakt" },
@@ -20,5 +23,7 @@ export default defineConfig({
       { path: "/datenschutz" },
     ],
     prerender: { enabled: true, autoStaticPathsDiscovery: false },
+      enabled: true,
+      autoStaticPathsDiscovery: false,
   },
 });
