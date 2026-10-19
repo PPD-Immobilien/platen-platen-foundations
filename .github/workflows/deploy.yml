@@ -40,8 +40,11 @@ jobs:
           node-version: lts/*
           package-manager-cache: false
 
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+
       - name: Install dependencies
-        run: npm install
+        run: bun install --frozen-lockfile
 
       - name: Build
         run: npm run build
