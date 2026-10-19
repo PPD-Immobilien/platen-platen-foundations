@@ -134,7 +134,7 @@ function Index() {
               Langfristig investieren. Werte erhalten.
             </h1>
             <p className="mt-6 max-w-xl text-base leading-relaxed text-muted-foreground">
-              Wir sind drei Freunde aus der Rhein-Main-Region und investieren gemeinsam in
+              Wir sind drei Investoren aus der Rhein-Main-Region und investieren gemeinsam in
               Wohnimmobilien für unseren langfristigen Bestand.
             </p>
             <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
